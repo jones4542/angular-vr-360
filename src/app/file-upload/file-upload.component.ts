@@ -23,7 +23,7 @@ export class FileUploadComponent implements OnInit {
   urlControl = new FormControl('', [
       Validators.required,
       Validators.minLength(5),
-      Validators.pattern(this.pattern)
+      // Validators.pattern(this.pattern)
     ]
   );
   videoSubmitForm = new FormGroup({
@@ -37,7 +37,8 @@ export class FileUploadComponent implements OnInit {
   }
 
   onSubmit() {
+    const urls='assets/videos/eagle-360.mp4';
     console.warn(this.videoSubmitForm.value);
-    this.router.navigate(['/video-view/' +  encodeURIComponent(this.videoSubmitForm.value.url)]);
+    this.router.navigate(['/video-view/' +  encodeURIComponent(urls)]);
   }
 }
